@@ -1,0 +1,21 @@
+version: "3"
+services:
+  register-a:
+    image: ascdc/jdk8
+    ports:
+      - "8761:80"
+    restart: "always"
+    container_name: register-a
+    volumes:
+      - ./register-1.0-SNAPSHOT.jar:/data/wxchat-0.0.1-SNAPSHOT.jar
+    entrypoint: java -jar /data/wxchat-0.0.1-SNAPSHOT.jar
+
+  register-b:
+    image: ascdc/jdk8
+    ports:
+      - "8762:80"
+    restart: "always"
+    container_name: register-b
+    volumes:
+      - ./register-1.0-SNAPSHOT.jar:/data/wxchat-0.0.1-SNAPSHOT.jar
+    entrypoint: java -jar /data/wxchat-0.0.1-SNAPSHOT.jar

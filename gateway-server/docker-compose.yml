@@ -1,0 +1,21 @@
+version: "3"
+services:
+  gateway-server-a:
+    image: ascdc/jdk8
+    ports:
+      - "5001:80"
+    restart: "always"
+    container_name: gateway-server-a
+    volumes:
+      - ./gateway-server-1.0-SNAPSHOT.jar:/data/wxchat-0.0.1-SNAPSHOT.jar
+    entrypoint: java -jar /data/wxchat-0.0.1-SNAPSHOT.jar
+
+  gateway-server-b:
+    image: ascdc/jdk8
+    ports:
+      - "5001:80"
+    restart: "always"
+    container_name: gateway-server-b
+    volumes:
+      - ./register-1.0-SNAPSHOT.jar:/data/wxchat-0.0.1-SNAPSHOT.jar
+    entrypoint: java -jar /data/wxchat-0.0.1-SNAPSHOT.jar
